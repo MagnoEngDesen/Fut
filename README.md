@@ -40,4 +40,5 @@ npx react-native run-android
 
 Aurelio Magno Allandellon Alves de Sousa
 
-https://www.linkedin.com/in/aur%C3%A9lio-magno-1891271b2
+
+https://www.linkedin.com/in/aurélio-magno-1891271b2
