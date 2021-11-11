@@ -56,7 +56,7 @@ export default props => {
                   </ListItem.Content>
                   <Chip title={pontos.displayValue}  buttonStyle={ 
                     
-                    (rank.value === 1) || (rank.value === 2)|| (rank.value === 3)|| (rank.value === 4) ? ({backgroundColor:'#86BA90'})
+                    (rank.value >= 1) & (rank.value <= 4) ? ({backgroundColor:'#86BA90'})
                      : (rank.value === (quantidadeDeTimes) 
                      || (rank.value === (quantidadeDeTimes-1)
                      || (rank.value ===(quantidadeDeTimes -2))
