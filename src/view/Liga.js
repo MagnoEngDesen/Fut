@@ -11,7 +11,7 @@ export default ({ route, navigation }) => {
   const [dataProps] = useState(route.params ? route.params : {});
   const [carregando, setCarregando] = useState(true);
   const [data, setData] = useState([]);
-  const [selectedAno, setSelectedAno] = useState(2021);
+  const [selectedAno, setSelectedAno] = useState('2021');
   const [time, setTime] = useState({})
 
   const getSeasons = async () => {
@@ -60,11 +60,19 @@ export default ({ route, navigation }) => {
                     setSelectedAno(itemValue)
                   }>
                   {data.map(({ year }, i) => {
-                    return <Picker.Item key={i} label={year.toString()} value={year} />;
+                    return <Picker.Item key={i} label={year.toString()} value={year.toString()} />;
                   })}
                 </Picker>
               )}
-              
+              <Button
+                disabled={carregando ? true : false}
+                buttonStyle={styles.buttonStyle}
+                title="Buscar"
+                onPress={() => navigation.navigate('TeamList', {
+                  id: dataProps.id,
+                  ano: selectedAno,
+                })}
+              />
             </View>
           </Card>
         </View>
@@ -83,6 +91,7 @@ export default ({ route, navigation }) => {
                 maxLength={4}
                 label="Data do Campeonato"
                 placeholder="Ano"
+                value={selectedAno}
                 leftIcon={{ type: 'font-awesome', name: 'calendar', color:'#332a2b' }}
                 onChangeText={value => setTime(value)}
               />
@@ -90,10 +99,10 @@ export default ({ route, navigation }) => {
                 disabled={carregando ? true : false}
                 buttonStyle={styles.buttonStyle}
                 title="Buscar"
-                onPress={() => navigation.navigate('TeamList', {
+                onPress={() => navigation.navigate('TimeCard', {
                   id: dataProps.id,
                   ano: selectedAno,
-
+                  time: time,
                 })}
               />
             </View>

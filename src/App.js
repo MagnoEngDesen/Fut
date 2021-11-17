@@ -4,6 +4,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import LigasList from "./view/LigasList";
 import TeamList from "./view/TeamList";
 import Liga from "./view/Liga";
+import TimeCard from "./view/modal/Time.Card";
 
 
 const Stack = createNativeStackNavigator();
@@ -22,6 +23,15 @@ export default props =>{
         options={()=>{
           return{
             title: 'Lista de Ligas'
+          }
+        }}
+        />
+        <Stack.Screen
+        name="TimeCard"
+        component={TimeCard}
+        options={()=>{
+          return{
+            title: 'Busca por time'
           }
         }}
         />
